@@ -6,6 +6,7 @@ import icons from '../img/icons.svg';
 const productCard = document.querySelector('.product-list');
 
 async function createProductsMarkup() {
+
   try {
     productCard.addEventListener('click', event => {
       const card = event.target.closest('.js-card');
@@ -25,12 +26,13 @@ async function createProductsMarkup() {
       }
     });
   } catch (error) {
-    console.error('Error in createProductsMarkup:', error);
+    console.error(error);
   }
+
 }
 
 function toggleBtn(productId) {
-  const storage = JSON.parse(localStorage.getItem('cartData')) || [];
+  const storage = JSON.parse(localStorage.getItem('cartData'));
   const cardStorage = Array.from(storage);
 
   if (cardStorage.includes(productId)) {
@@ -41,7 +43,7 @@ function toggleBtn(productId) {
 }
 
 async function checkIsItemInCart() {
-  const cartItems = JSON.parse(localStorage.getItem('cartData')) || [];
+  const cartItems = JSON.parse(localStorage.getItem('cartData'))|| [];
   const itemsOnPage = document.querySelectorAll('.js-card');
   const itemsArr = Array.from(itemsOnPage);
 
@@ -49,35 +51,12 @@ async function checkIsItemInCart() {
     const itemId = item.dataset.id;
     cartItems.forEach(id => {
       if (itemId === id) {
-        const matchedItem = item.querySelector(`.js-btn[data-id='${id}']`);
-        if (matchedItem) {
-          matchedItem.classList.add('added');
-        }
+        const matchedItem = document.querySelector(`.js-btn[data-id='${id}']`);
+        matchedItem.classList.add('added');
       }
     });
   });
 }
-
-
-function addToCart(productId) {
-  let cartData = JSON.parse(localStorage.getItem('cartData')) || [];
-  if (!cartData.includes(productId)) {
-    cartData.push(productId);
-  }
-  localStorage.setItem('cartData', JSON.stringify(cartData));
-}
-
-function removeFromCart(productId) {
-  let cartData = JSON.parse(localStorage.getItem('cartData')) || [];
-  cartData = cartData.filter(id => id !== productId);
-  localStorage.setItem('cartData', JSON.stringify(cartData));
-}
-
-
-
-
-
-
 
 function createMarkup(arr) {
   return arr
