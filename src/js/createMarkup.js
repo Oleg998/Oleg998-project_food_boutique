@@ -32,7 +32,7 @@ async function createProductsMarkup() {
 }
 
 function toggleBtn(productId) {
-  const storage = JSON.parse(localStorage.getItem('cartData'));
+  const storage = JSON.parse(localStorage.getItem('cartData'))||[];
   const cardStorage = Array.from(storage);
 
   if (cardStorage.includes(productId)) {
