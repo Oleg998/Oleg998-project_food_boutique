@@ -1,5 +1,5 @@
 # Vanilla App Template
-This project was base on Vite. Make sure to find more <a href="https://vitejs.dev/" target="_blank" rel="noreferrer">details</a>
+
 
 ## Technology(which were used)
   <ul align="left"> <li><a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> </li>
